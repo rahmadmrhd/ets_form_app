@@ -121,8 +121,8 @@ class _NotaFormState extends State<NotaForm> {
       );
       if (isCamera == null) return;
 
-      final ImagePicker picker = ImagePicker();
       if (isCamera) {
+        final ImagePicker picker = ImagePicker();
         var image = await picker.pickImage(source: ImageSource.camera);
         if (image == null) return;
         setState(() {
@@ -203,9 +203,6 @@ class _NotaFormState extends State<NotaForm> {
   }
 
   void save() {
-    print(_ppnController.text
-        .replaceAll(RegExp(r'%|\.'), '')
-        .replaceAll(RegExp(r','), '.'));
     if (_formKey.currentState!.validate()) {
       Nota result = Nota(
         nomorNota: _noNotaController.text,
